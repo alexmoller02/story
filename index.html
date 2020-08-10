@@ -1,0 +1,105 @@
+<!doctype HTML5>
+<html>
+
+  <head>
+
+    <h1 class="title">Start your own story right here </h1>
+
+    <div class="image">
+
+        <SCRIPT class="image" LANGUAGE="JavaScript">
+
+
+
+      <!-- Begin
+      display_random_image();
+      //  End -->
+      </script>
+    <SCRIPT class="image" LANGUAGE="JavaScript">
+    function display_random_image()
+    {
+         var theImages = [{
+            src: "./carl.png",
+            width: "200",
+            height: "160"
+        }, {
+            src: "./teis.png",
+            width: "200",
+            height: "160"
+        }, {
+            src: "./jonas.png",
+            width: "200",
+            height: "160"
+        }, {
+          src: "./shrek.jpg",
+          width: "200",
+          height: "160"
+        }, {
+          src: "./laurits.png",
+          width: "200",
+          height: "160"
+      }];
+
+
+        var preBuffer = [];
+        for (var i = 0, j = theImages.length; i < j; i++) {
+            preBuffer[i] = new Image();
+            preBuffer[i].src = theImages[i].src;
+            preBuffer[i].width = theImages[i].width;
+            preBuffer[i].height = theImages[i].height;
+        }
+
+    // create random image number
+      function getRandomInt(min,max)
+        {
+          //  return Math.floor(Math.random() * (max - min + 1)) + min;
+
+    imn = Math.floor(Math.random() * (max - min + 1)) + min;
+        return preBuffer[imn];
+        }
+
+    // 0 is first image,   preBuffer.length - 1) is  last image
+
+    var newImage = getRandomInt(0, preBuffer.length - 1);
+
+    // remove the previous images
+    var images = document.getElementsByTagName('img');
+    var l = images.length;
+    for (var p = 0; p < l; p++) {
+        images[0].parentNode.removeChild(images[0]);
+    }
+    // display the image
+    document.body.appendChild(newImage);
+    }
+    </script>
+  </div>
+    <title>Story teller</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body class="body">
+
+<div class="image">
+
+
+</div>
+
+    <div>
+      <label for="customname">Enter custom name:</label>
+      <input id="customname" type="text" placeholder="" required>
+    </div>
+
+    <div>
+      <button onclick="display_random_image();" class="randomize">Generate random story</button>
+    </div>
+
+    <p class="story"></p>
+
+
+    <script src="./main.js"></script>
+    <script>
+
+    </script>
+  </body>
+
+</html>
